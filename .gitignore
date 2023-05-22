@@ -1,0 +1,5 @@
+# Node.js
+api/node_modules/
+api/package-lock.json
+#data of mysql
+api/db/data
