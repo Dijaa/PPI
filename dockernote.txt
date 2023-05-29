@@ -5,4 +5,8 @@ docker run -d -v %cd%/api/db/data:/var/lib/mysql --rm --name mysql-container mys
 // criar image api image // node
 docker build -t node-image -f api/Dockerfile .
 // roda docker mysql mantendo volume de dados
-docker run -d -v %cd%/api:/home/node/app -p 9001:9001 --rm --name node-container node-image
+docker run -d -v %cd%/api:/home/node/app -p 9001:9001 --link mysql-container --rm --name node-container node-image
+// criar image php image
+docker build -t php-image -f website/Dockerfile .
+// roda docker php 
+docker run -d -v %cd%/website:/var/www/html -p 8080:80 --link node-container -rm --name php-container php-image
