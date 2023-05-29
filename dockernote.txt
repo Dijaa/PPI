@@ -9,4 +9,4 @@ docker run -d -v %cd%/api:/home/node/app -p 9001:9001 --link mysql-container --r
 // criar image php image
 docker build -t php-image -f website/Dockerfile .
 // roda docker php 
-docker run -d -v %cd%/website:/var/www/html -p 8080:80 --link node-container -rm --name php-container php-image
+docker run -d -v %cd%/website:/var/www/html -p 8080:80 --link node-container --rm --name php-container php-image
