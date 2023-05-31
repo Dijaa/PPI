@@ -1,0 +1,33 @@
+version: '3'
+services:
+  mysql:
+    build:
+      context: .
+      dockerfile: api/db/Dockerfile
+    image: mysql-image
+    volumes:
+      - ./api/db/data:/var/lib/mysql
+
+  node:
+    build:
+      context: .
+      dockerfile: api/Dockerfile
+    image: node-image
+    volumes:
+      - ./api:/home/node/app
+    ports:
+      - 9001:9001
+    depends_on:
+      - mysql
+
+  php:
+    build:
+      context: .
+      dockerfile: website/Dockerfile
+    image: php-image
+    volumes:
+      - ./website:/var/www/html
+    ports:
+      - 8080:80
+    depends_on:
+      - node
