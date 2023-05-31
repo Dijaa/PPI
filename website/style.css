@@ -14,7 +14,7 @@ body {
 }
 
 main {
-    background-color: #d6d6d6;
+    background-color: #f3f3f3;
     height: 600px;
     width: 400px;
     display: flex;
@@ -51,4 +51,20 @@ input {
 .input-text {
     border-radius: 5px;
     box-shadow: 6px 6px 4px rgba(0, 0, 0, 0.25);
+}
+
+.btn-login {
+    font-size: 20px;
+    height: 40px;
+    width: 200px;
+    outline: none;
+    border: none;
+    color: #ffffff;
+    background-color: #eeb662;
+    border-radius: 5px;
+    box-shadow: 6px 6px 4px rgba(0, 0, 0, 0.25);
+}
+
+.btn-login:hover {
+    background-color: #eecb96;
 }
